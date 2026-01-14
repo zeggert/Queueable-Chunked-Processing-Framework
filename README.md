@@ -499,7 +499,7 @@ public class OrderFulfillmentProcessor extends ChunkedQueueableProcessor {
         if (this.orders == null) {
             this.orders = [SELECT Id, Order_Number__c, Total_Amount__c, Status__c
                           FROM Order__c 
-                          WHERE Status__c = 'Ready_for_Fulfillment__c'
+                          WHERE Status__c = 'Ready for Fulfillment'
                           LIMIT 200];
         }
         return this.orders;
@@ -541,7 +541,7 @@ public class OrderFulfillmentProcessor extends ChunkedQueueableProcessor {
             insert fulfillment;
             
             // Update order status
-            order.Status__c = 'Fulfillment_In_Progress__c';
+            order.Status__c = 'Fulfillment In Progress';
             order.Fulfillment__c = fulfillment.Id;
             update order;
             
