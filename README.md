@@ -358,7 +358,7 @@ public class AccountProcessor extends ChunkedQueueableProcessor {
     protected override Boolean processRecord(Object record) {
         Account acc = (Account)record;
         acc.Status__c = 'Processed';
-        acc.Processed_Date__c = System.today();
+        acc.Processed_Date__c = System.now();
         update acc;
         return true;
     }
